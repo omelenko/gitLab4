@@ -1,69 +1,20 @@
+// gitLab4_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
 #include <iostream>
-#include <vector>
 
-using namespace std;
-
-// Function to perform interpolation search
-// Returns the index of the element if found, otherwise -1
-int interpolationSearch(const vector<int>& arr, int x) {
-    // Finding the indexes of start and end of array
-    int low = 0;
-    int high = arr.size() - 1;
-    
-    // Condition for search termination
-    while (low <= high && x >= arr[low] && x <= arr[high]) {
-        if (low == high) {
-            if (arr[low] == x)
-                return low;
-            return -1;
-        }
-        
-        // Interpolation formula to calculate position
-        int pos = low + ((double)(high - low) / (arr[high] - arr[low])) * (x - arr[low]);
-        
-        // If element is found
-        if (arr[pos] == x)
-            return pos;
-        
-        // If x is greater, search in the right part
-        if (arr[pos] < x)
-            low = pos + 1;
-        // If x is smaller, search in the left part
-        else
-            high = pos - 1;
-    }
-    
-    return -1; // Element not found
+int main()
+{
+    std::cout << "Hello World!\n";
 }
 
-// Function to demonstrate the algorithm
-void demonstrateInterpolationSearch() {
-    vector<int> arr = {10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47};
-    
-    cout << "Array: ";
-    for (int num : arr) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    int x = 18;
-    int index = interpolationSearch(arr, x);
-    if (index != -1)
-        cout << "Element " << x << " found at position " << index << endl;
-    else
-        cout << "Element " << x << " not found in the array" << endl;
-    
-    x = 25;
-    index = interpolationSearch(arr, x);
-    if (index != -1)
-        cout << "Element " << x << " found at position " << index << endl;
-    else
-        cout << "Element " << x << " not found in the array" << endl;
-}
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
 
-int main() {
-    
-        demonstrateInterpolationSearch();
-        
-    return 0;
-}
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
