@@ -36,6 +36,21 @@ int interpolationSearch(const vector<int>& arr, int x) {
     return -1; // Element not found
 }
 
+// Custom implementation of bubble sort without using STL
+void bubbleSort(vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap elements
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
 // Function to demonstrate the algorithm
 void demonstrateInterpolationSearch() {
     vector<int> arr = {10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47};
@@ -61,9 +76,64 @@ void demonstrateInterpolationSearch() {
         cout << "Element " << x << " not found in the array" << endl;
 }
 
-int main() {
+// Function for user input array and search
+void userInterpolationSearch() {
+    int n;
+    cout << "Enter array size: ";
+    cin >> n;
     
-        demonstrateInterpolationSearch();
+    vector<int> arr(n);
+    cout << "Enter " << n << " array elements (in any order):\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    // Check if the array is sorted
+    bool isSorted = true;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < arr[i-1]) {
+            isSorted = false;
+            break;
+        }
+    }
+    
+    // If the array is not sorted, sort it
+    if (!isSorted) {
+        cout << "Array is not sorted. Performing automatic sorting...\n";
+        bubbleSort(arr); // Using custom bubble sort
+        cout << "Sorted array: ";
+        for (int num : arr) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+    
+    int x;
+    cout << "Enter element to search: ";
+    cin >> x;
+    
+    int index = interpolationSearch(arr, x);
+    if (index != -1)
+        cout << "Element " << x << " found at position " << index << endl;
+    else
+        cout << "Element " << x << " not found in the array" << endl;
+}
 
+int main() {
+    int choice;
+    cout << "Select an option:\n";
+    cout << "1. Demonstration with a prepared example\n";
+    cout << "2. Enter your own array and search in it\n";
+    cout << "Your choice: ";
+    cin >> choice;
+    
+    if (choice == 1) {
+        demonstrateInterpolationSearch();
+    } else if (choice == 2) {
+        userInterpolationSearch();
+    } else {
+        cout << "Invalid choice!" << endl;
+    }
+    
     return 0;
 }
