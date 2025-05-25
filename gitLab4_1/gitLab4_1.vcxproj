@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="gitLab4_1.cpp" />
     <ClCompile Include="GoldenSectionSearch.cpp" />
+    <ClCompile Include="Interpolation_search.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GoldenSectionSearch.h" />
+    <ClInclude Include="search_sort_utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

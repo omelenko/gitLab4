@@ -1,8 +1,9 @@
 // search_sort_utils.h
 #pragma once
-
+#include <vector>
+using namespace std;
 // Функція сортування бульбашкою
-static void bubbleSort(int arr[], int size) {
+static void bubbleSort(vector<int>& arr, int size) {
     for (int i = 0; i < size - 1; i++)
         for (int j = 0; j < size - i - 1; j++)
             if (arr[j] > arr[j + 1])
@@ -10,7 +11,7 @@ static void bubbleSort(int arr[], int size) {
 }
 
 // Функція бінарного пошуку
-static int binarySearch(int arr[], int size, int target) {
+static int binarySearch(vector<int>& arr, int size, int target) {
     int left = 0;
     int right = size - 1;
     while (left <= right) {

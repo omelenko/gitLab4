@@ -5,7 +5,7 @@ using namespace std;
 
 // Function to perform interpolation search
 // Returns the index of the element if found, otherwise -1
-int interpolationSearch(const vector<int>& arr, int x) {
+static int interpolationSearch(const vector<int>& arr, int x) {
     // Finding the indexes of start and end of array
     int low = 0;
     int high = arr.size() - 1;
@@ -37,7 +37,7 @@ int interpolationSearch(const vector<int>& arr, int x) {
 }
 
 // Custom implementation of bubble sort without using STL
-void bubbleSort(vector<int>& arr) {
+static void bubbleSort(vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
@@ -52,7 +52,7 @@ void bubbleSort(vector<int>& arr) {
 }
 
 // Function to demonstrate the algorithm
-void demonstrateInterpolationSearch() {
+static void demonstrateInterpolationSearch() {
     vector<int> arr = {10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47};
     
     cout << "Array: ";
@@ -77,7 +77,7 @@ void demonstrateInterpolationSearch() {
 }
 
 // Function for user input array and search
-void userInterpolationSearch() {
+static void userInterpolationSearch() {
     int n;
     cout << "Enter array size: ";
     cin >> n;
@@ -119,7 +119,7 @@ void userInterpolationSearch() {
         cout << "Element " << x << " not found in the array" << endl;
 }
 
-int main() {
+static int interpolationSearchMain() {
     int choice;
     cout << "Select an option:\n";
     cout << "1. Demonstration with a prepared example\n";
